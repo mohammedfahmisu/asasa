@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كشف حساب</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>كشف حساب</h1>
+        <ul>
+            <li><a href="home.html">الرئيسية</a></li>
+            <li><a href="customers.html">العملاء</a></li>
+            <li><a href="suppliers.html">الموردين</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h3>اختر عميل أو مورد</h3>
+        <select id="accountSelect" onchange="loadAccountDetails()">
+            <option value="">اختر</option>
+            <option value="customer1">عميل 1</option>
+            <option value="customer2">عميل 2</option>
+            <option value="supplier1">مورد 1</option>
+            <option value="supplier2">مورد 2</option>
+        </select>
+        <h4>تفاصيل كشف الحساب</h4>
+        <div id="accountDetails">
+            <!-- تفاصيل الحساب ستظهر هنا -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>	
+// بيانات بدائية لتخزين الفواتير والدفعات
+let sales = [
+    { customer: "customer1", amount: 100, date: "2023-08-01" },
+    { customer: "customer1", amount: 150, date: "2023-08-10" },
+    { customer: "customer2", amount: 200, date: "2023-08-05" }
+];
+
+let payments = [
+    { entity: "customer1", amount: 50, date: "2023-08-02" },
+    { entity: "customer1", amount: 30, date: "2023-08-11" },
+    { entity: "supplier1", amount: 100, date: "2023-08-03" }
+];
+
+// تحميل تفاصيل الحساب
+function loadAccountDetails() {
+    const accountSelect = document.getElementById('accountSelect');
+    const selectedAccount = accountSelect.value;
+
+    const accountDetails = document.getElementById('accountDetails');
+    accountDetails.innerHTML = ""; // مسح المحتوى السابق
+
+    if (selectedAccount) {
+        let totalSales = 0;
+        let totalPayments = 0;
+
+        // عرض الفواتير
+        const salesList = sales.filter(sale => sale.customer === selectedAccount);
+        if (salesList.length) {
+            accountDetails.innerHTML += "<h5>فواتير</h5><table><tr><th>التاريخ</th><th>المبلغ</th></tr>";
+            salesList.forEach(sale => {
+                accountDetails.innerHTML += `<tr><td>${sale.date}</td><td>${sale.amount}</td></tr>`;
+                totalSales += sale.amount;
+            });
+            accountDetails.innerHTML += "</table>";
+        }
+
+        // عرض المدفوعات
+        const paymentsList = payments.filter(payment => payment.entity === selectedAccount);
+        if (paymentsList.length) {
+            accountDetails.innerHTML += "<h5>مدفوعات</h5><table><tr><th>التاريخ</th><th>المبلغ</th></tr>";
+            paymentsList.forEach(payment => {
+                accountDetails.innerHTML += `<tr><td>${payment.date}</td><td>${payment.amount}</td></tr>`;
+                totalPayments += payment.amount;
+            });
+            accountDetails.innerHTML += "</table>";
+        }
+
+        // عرض الرصيد
+        const balance = totalSales - totalPayments;
+        accountDetails.innerHTML += `<h4>الرصيد: ${balance}</h4>`;
+    } else {
+        accountDetails.innerHTML = "<p>يرجى اختيار عميل أو مورد.</p>";
+    }
+}
