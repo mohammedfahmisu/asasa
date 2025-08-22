@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة المخازن</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>إدارة المخازن</h1>
+        <ul>
+            <li><a href="home.html">الرئيسية</a></li>
+            <li><a href="customers.html">العملاء</a></li>
+            <li><a href="suppliers.html">الموردين</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h3>قائمة الأصناف</h3>
+        <button onclick="addProduct()">إضافة صنف</button>
+        <table id="productsTable">
+            <tr>
+                <th>اسم الصنف</th>
+                <th>الكمية</th>
+                <th>الإجراء</th>
+            </tr>
+            <!-- بيانات الأصناف ستظهر هنا -->
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

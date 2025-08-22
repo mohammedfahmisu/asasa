@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المدفوعات</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>المدفوعات</h1>
+        <ul>
+            <li><a href="home.html">الرئيسية</a></li>
+            <li><a href="customers.html">العملاء</a></li>
+            <li><a href="suppliers.html">الموردين</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h3>إضافة مدفوعات</h3>
+        <form id="paymentForm">
+            <select id="paymentSelect" required>
+                <option value="">اختر عميل/مورد</option>
+                <!-- قائمة العملاء/الموردين ستظهر هنا -->
+            </select>
+            <input type="number" placeholder="المبلغ" required>
+            <button type="submit">إضافة المدفوعات</button>
+        </form>
+        <h4>تفاصيل المدفوعات</h4>
+        <table id="paymentsTable">
+            <tr>
+                <th>الطرف</th>
+                <th>المبلغ</th>
+                <th>التاريخ</th>
+                <th>الإجراء</th>
+            </tr>
+            <!-- تفاصيل المدفوعات ستظهر هنا -->
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فواتير البيع</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>فواتير البيع</h1>
+        <ul>
+            <li><a href="home.html">الرئيسية</a></li>
+            <li><a href="customers.html">العملاء</a></li>
+            <li><a href="products.html">المخازن</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h3>إنشاء فاتورة بيع</h3>
+        <form id="saleForm">
+            <select id="customerSelect" required>
+                <option value="">اختر عميل</option>
+                <!-- قائمة العملاء ستظهر هنا -->
+            </select>
+            <input type="text" placeholder="اسم الصنف" required>
+            <input type="number" placeholder="الكمية" required>
+            <input type="number" placeholder="السعر" required>
+            <button type="submit">إضافة إلى الفاتورة</button>
+        </form>
+        <h4>تفاصيل الفاتورة</h4>
+        <table id="salesTable">
+            <tr>
+                <th>اسم الصنف</th>
+                <th>الكمية</th>
+                <th>السعر</th>
+                <th>الإجراء</th>
+            </tr>
+            <!-- تفاصيل الفاتورة ستظهر هنا -->
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

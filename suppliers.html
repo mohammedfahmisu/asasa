@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة الموردين</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>إدارة الموردين</h1>
+        <ul>
+            <li><a href="home.html">الرئيسية</a></li>
+            <li><a href="customers.html">العملاء</a></li>
+            <li><a href="products.html">المخازن</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h3>قائمة الموردين</h3>
+        <button onclick="addSupplier()">إضافة مورد</button>
+        <table id="suppliersTable">
+            <tr>
+                <th>اسم المورد</th>
+                <th>الإجراء</th>
+            </tr>
+            <!-- بيانات الموردين ستظهر هنا -->
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
